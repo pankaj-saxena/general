@@ -1,0 +1,26 @@
+{
+    "magic": "atMSG",
+    "type": "DT",
+    "headers": null,
+    "messageSchemaId": null,
+    "messageSchema": null,
+    "message": {
+        "data": {
+            "CUSTOMER_ID": "990010000101",
+            "FIRST_NAME": "WZ-udp1",
+            "LAST_NAME": "WZ-lastName1",
+        },
+        "beforeData": null,
+        "headers": {
+            "operation": "DELETE",
+            "changeSequence": "20190227232800000000000000000000065",
+            "timestamp": "2019-02-27T23:27:27.000",
+            "streamPosition": "00000000.00451bdb.00000001.0000.01.0000:12.133551.16",
+            "transactionId": "000000000000000000000000001E0003",
+            "changeMask": "0000000001",
+            "columnMask": "1FFFFFFFFF",
+            "transactionEventCounter": 2,
+            "transactionLastEvent": true
+        }
+    }
+}

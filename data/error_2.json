@@ -1,0 +1,104 @@
+{
+  "400": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/validation-error",
+        "typeCode": "1000",
+        "title": "Bad request",
+        "details": "parameters invalid",
+        "errorParams": [
+          {
+            "name": "customerID",
+            "reason": "not found"
+          }
+        ]
+      }
+    ],
+    "status": 400
+  },
+  "401": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/unauthorized-error",
+        "typeCode": "1001",
+        "title": "Not Authorized",
+        "details": "error validating authentication/authorization data",
+        "errorParams": [
+          {
+            "name": "authorization",
+            "reason": "invalid"
+          }
+        ]
+      }
+    ],
+    "status": 401
+  },
+  "404": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/validation-error",
+        "typeCode": "1002",
+        "title": "Customer not found",
+        "details": "Customer ID is not in database",
+        "errorParams": [
+          {
+            "name": "customerID",
+            "reason": "not found"
+          }
+        ]
+      }
+    ],
+    "status": 404
+  },
+  "405": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/http-method-errorr",
+        "typeCode": "1003",
+        "title": "http method not allowed",
+        "details": "http method not allowed in this API",
+        "errorParams": [
+          {
+            "name": "http-verb",
+            "reason": "not valid"
+          }
+        ]
+      }
+    ],
+    "status": 405
+  },
+  "500": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/generic-error",
+        "typeCode": "1005",
+        "title": "Unexpected error condition was encountered",
+        "details": "Unexpected error condition was encountered",
+        "errorParams": [
+          {
+            "name": "",
+            "reason": ""
+          }
+        ]
+      }
+    ],
+    "status": 500
+  },
+  "503": {
+    "errors": [
+      {
+        "type": "https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/backend-error",
+        "typeCode": "1004",
+        "title": "Backend not available",
+        "details": "Backend application is not available",
+        "errorParams": [
+          {
+            "name": "",
+            "reason": ""
+          }
+        ]
+      }
+    ],
+    "status": 503
+  }
+}

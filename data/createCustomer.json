@@ -1,0 +1,26 @@
+{
+    "magic": "atMSG",
+    "type": "DT",
+    "headers": null,
+    "messageSchemaId": null,
+    "messageSchema": null,
+    "message": {
+        "data": {
+            "CUSTOMER_ID": "990010000101",
+            "FIRST_NAME": "WZ-firstName1",
+            "LAST_NAME": "WZ-lastName1"
+        },
+        "beforeData": null,
+        "headers": {
+            "operation": "INSERT",
+            "changeSequence": "20190227232049000000000000000000049",
+            "timestamp": "2019-02-27T23:14:12.000",
+            "streamPosition": "00000000.00450bab.00000001.0000.02.0000:12.133449.16",
+            "transactionId": "000000000000000000000000001A0007",
+            "changeMask": "1FFFFFFFFF",
+            "columnMask": "1FFFFFFFFF",
+            "transactionEventCounter": 1,
+            "transactionLastEvent": true
+        }
+    }
+}

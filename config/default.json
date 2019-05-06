@@ -1,0 +1,20 @@
+{
+"backend": {
+    "host": "localhost",
+    "protocol": "https",
+    "port": "443",
+    "uri": "/api/v1/stores/1000",
+    "apikey": "APIKEY"
+    },
+"server": {
+    "port":"3001",
+    "proxy":"http://gateway.zscalertwo.net:9480",
+    "passphrase":"password"
+    },
+"kafka": { 
+        "host":"dla-aeuddkb001.walgreens.com",
+        "port":"9092",
+        "topic": "dd-dev-cpm-dry1-cd1-c"
+
+    }
+}
