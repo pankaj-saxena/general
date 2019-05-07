@@ -1,0 +1,174 @@
+nodejs v10.15.2
+npm 6.4.1
+VSCodeUserSetup-x64-1.31.1
+SourceTreeSetup-3.0.17
+Docker Desktop
+GIT 2.21.0
+Notepad ++
+Ubuntu: iyus8d/password
+sonar-scanner-cli-3.3.0.1492-windows
+owasp/dependency-check-4.0.2-release.zip
+java 8
+
+
+
+SonarQube
+*********
+codebase
+https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-windows.zip 
+
+documentation
+https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+
+Path
+C:\myData\microservices\RnD\sonar-scanner-3.3.0.1492-windows\bin\sonar-scanner.bat
+
+OWASP Dependency Check
+************************
+codebase
+https://www.owasp.org/index.php/OWASP_Dependency_Check 
+
+documentation
+https://jeremylong.github.io/DependencyCheck/index.html
+https://jeremylong.github.io/DependencyCheck/dependency-check-cli/index.html
+
+Path
+C:\myData\microservices\RnD\dependency-check\bin\dependency-check.bat
+
+Run
+C:\Program Files (x86)\Java\jre1.8.0_201\lib
+dependency-check.bat --project "mytest" --scan . --scan ./test --scan /routes
+
+C:\apps\dependency-check\bin\dependency-check.bat --project expresstest --scan . --scan ./test --scan /routes
+
+C:\apps\dependency-check\bin\dependency-check.bat --project expresstest --scan . --scan ./test --scan /routes
+
+
+NodeJS Framework
+*****************
+https://expressjs.com/
+
+
+Bitbucket
+***********
+We will use the Forking workflow. more details in this post:
+GIT Forking and Branching Strategy
+https://oneit.wba.com/confluence/display/ICELEAP/GIT+Forking+and+Branching+Strategy
+For commits use this standard:
+https://chris.beams.io/posts/git-commit/
+Include a README in all the repos. It is a template.
+https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
+mangodb- API Key
+b70cb900-076c-492c-9f9b-11b495bbde62
+
+connection string
+mongodb+srv://testuser:<password>@myclsmdb01-qa8gz.mongodb.net/test?retryWrites=true
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://testuser:<password>@myclsmdb01-qa8gz.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+set NODE_ENV=sit/staging/prod
+
+
+Kafka
+******
+http://kafka.apache.org/quickstart
+Since Kafka console scripts are different for Unix-based and Windows platforms, on Windows platforms use bin\windows\ instead of , and change the script extension to .bat. 
+
+tar -xzf kafka_2.11-2.2.0.gz
+
+zookeeper-server-start.bat config/zookeeper.properties
+
+kafka-server-start.bat config/server.properties
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+
+kafka-topics.bat --list --bootstrap-server localhost:9092
+
+
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+kafka-topics.bat --delete --bootstrap-server localhost:9092 --topic test
+
+
+
+Cosmos DB
+**********
+connection string
+AccountEndpoint=https://wbatest.documents.azure.com:443/;AccountKey=cynXtZJEsR42AU801oWwfuJhoZBebzG4OeMvephlIxYVLOIXuworHSrNn8WFqMUIFbdO8sTOh3nf9mJxX6vACw==
+
+
+
+IntelliJ Community IDEA edition 2019.1  
+Maven
+Jdk1.8
+Spring/Spring Boot
+Checkstyle - Coding standards
+PMD - Java source code analyzer for possible bugs
+CosmosDB
+Mockito
+Java Cucumber - BDD For All
+
+*****************************************************
+Azure CLI
+*****************************************************
+
+You can view your subscriptions by running:
+        az account list
+Locate the default subscription which has isDefault: true in the JSON output. If this isn't the subscription you want to use, you can change the default subscription with the next command:
+     az account set --subscription 0bef9fab-217e-4b4f-aec8-650fb725601f
+
+
+az group create --name AckmeGroup --location northeurope
+az aks create -g AckmeGroup -n AckmeAKS --location northeurope --node-count 1 --generate-ssh-keys
+az aks use-dev-spaces -g AckmeGroup -n AckmeAKS
+
+
+Oracle DB - Kafka
+******************
+
+https://oneit.wba.com/confluence/display/ICELEAP/Kafka+test+environment
+
+https://oneit.wba.com/confluence/display/ICELEAP/Source+Customer+Database+Definition
+cpm_app_user
+ddwba2019
+
+az aks use-dev-spaces -g dd-champi-aks-rg -n champi
+
+
+
+Backend error while fetching customer details. Error:Error: TrasactionId:0000000000000000000000000004000A, Message: customer with id 2037 alredy exists, ignoring the event.
+Backend error while fetching customer details. Error:Error: TrasactionId:00000000000000000000000000050002, Message: There exist 2 customers with id 2037
+TrasactionId:00000000000000000000000000010005, Message: Customer with id 2037 deleted successfully
+TrasactionId:00000000000000000000000000210003, Message: Customer with id 2182 updated successfully
+TrasactionId:00000000000000000000000000210003, Message: Customer with id 2037 updated successfully
+TrasactionId:00000000000000000000000000090002, Message: Customer with id 2037 updated successfully
+TrasactionId:00000000000000000000000000090002, Message: Customer with id 2182 updated successfully
+TrasactionId:00000000000000000000000000090002, Message: Customer with id 2255 not found in DB, therefore added it successfully
+TrasactionId:00000000000000000000000000090002, Message: Customer with id 2789 not found in DB, therefore added it successfully
+TrasactionId:00000000000000000000000000090002, Message: Customer with id 2836 not found in DB, therefore added it successfully
+
+Mocha
+******
+https://www.dyclassroom.com/mocha-chai/mocha-chai-introduction
+https://www.dyclassroom.com/mocha/mocha-introduction
+https://codeburst.io/javascript-unit-testing-using-mocha-and-chai-1d97d9f18e71
+https://alisdair.mcdiarmid.org/simple-nodejs-tests-with-assert-and-mocha/
+https://nodejs.org/api/all.html#all_assert
+
+
+Docker
+******
+https://www.linuxtechi.com/build-docker-container-images-with-dockerfile/
