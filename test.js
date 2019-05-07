@@ -83,11 +83,19 @@ function getMyType()
     }
 }
 
+function processDate(){
+    var dt = new Date();
+    console.log(dt + ' reponse');
+    console.log(dt.toJSON() + ' now');
+}
+
+
+                
 /***********************************test the functions******************************/
 //console.log('total amount:'+ test1(3,5));
 //readFileNow(filePath);
 //readFileLater(filePath);
 //showErrorDetails();
 //processEvent();
-getMyType();
-
+//getMyType();
+//processDate();

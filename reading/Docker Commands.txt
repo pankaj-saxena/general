@@ -56,6 +56,9 @@ docker push <ImageID>
 #Logout from Docker hub
 docker logout
 
+#build image from docker file
+docker build tag <tagname> <docker file path>
+
 
 
 https://Pankaj.Saxena@bitbucket.devops.boots.co.uk/scm/sag/zgz_sandbox.git
