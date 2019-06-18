@@ -1,0 +1,8 @@
+May 24, 2019
+------------
+- service to be developed and deployed by Accenture by Sep'19
+	- getPrescription
+	- pubPrescriptoinStatus
+	
+- platform - US non-prod subscription will be ready today onward
+- platform team's KT has been started. k

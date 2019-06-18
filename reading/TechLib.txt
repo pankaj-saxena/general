@@ -135,16 +135,16 @@ az aks use-dev-spaces -g dd-champi-aks-rg -n champi
 
 
 
-Backend error while fetching customer details. Error:Error: TrasactionId:0000000000000000000000000004000A, Message: customer with id 2037 alredy exists, ignoring the event.
-Backend error while fetching customer details. Error:Error: TrasactionId:00000000000000000000000000050002, Message: There exist 2 customers with id 2037
-TrasactionId:00000000000000000000000000010005, Message: Customer with id 2037 deleted successfully
-TrasactionId:00000000000000000000000000210003, Message: Customer with id 2182 updated successfully
-TrasactionId:00000000000000000000000000210003, Message: Customer with id 2037 updated successfully
-TrasactionId:00000000000000000000000000090002, Message: Customer with id 2037 updated successfully
-TrasactionId:00000000000000000000000000090002, Message: Customer with id 2182 updated successfully
-TrasactionId:00000000000000000000000000090002, Message: Customer with id 2255 not found in DB, therefore added it successfully
-TrasactionId:00000000000000000000000000090002, Message: Customer with id 2789 not found in DB, therefore added it successfully
-TrasactionId:00000000000000000000000000090002, Message: Customer with id 2836 not found in DB, therefore added it successfully
+2019-05-16T03:44:29.990Z>>>Backend error while updating customer details. Error:Error: TrasactionId:0000000000000000000000000004000A, Message: customer with id 2037 alredy exists, ignoring the event.
+2019-05-16T03:44:29.990Z>>>Backend error while updating customer details. Error:Error: TrasactionId:00000000000000000000000000050002, Message: There exist 2 customers with id 2037
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000010005, Message: Customer with id 2037 deleted successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000210003, Message: Customer with id 2182 updated successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000210003, Message: Customer with id 2037 updated successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000090002, Message: Customer with id 2037 updated successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000090002, Message: Customer with id 2182 updated successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000090002, Message: Customer with id 2255 not found in DB, therefore added it successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000090002, Message: Customer with id 2789 not found in DB, therefore added it successfully
+2019-05-16T03:44:29.990Z>>>TrasactionId:00000000000000000000000000090002, Message: Customer with id 2836 not found in DB, therefore added it successfully
 
 Mocha
 ******
@@ -158,3 +158,167 @@ https://nodejs.org/api/all.html#all_assert
 Docker
 ******
 https://www.linuxtechi.com/build-docker-container-images-with-dockerfile/
+
+
+Java - Code Review - CheckStyple
+*********************************
+
+https://www.baeldung.com/checkstyle-java
+
+
+via Maven 
+To add Checkstyle to a project, we need to add the plugin in the reporting section of a pom.xml:
+
+<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+            </configuration>
+        </plugin>
+    </plugins>
+</reporting>
+
+by using IDE plugins.
+
+
+Java- Unit Testing - Mockito
+*****************************
+
+https://www.tutorialspoint.com/mockito/mockito_overview.htm
+
+https://www.baeldung.com/mockito-series
+
+https://github.com/powermock/powermock/wiki/Mockito-Maven
+
+
+Java- Code Coverage - JACOCO
+****************************
+
+
+Java - Open API Server
+**********************
+
+https://openapi-generator.tech/docs/plugins
+
+https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin
+
+https://hub.docker.com/u/openapitools
+
+https://techsparx.com/software-development/openapi/spring-boot-rest-api-docs.html
+
+
+Maven Plugins
+*************
+Name					Plugin Name					Purpose
+maven-compiler-plugin	org.apache.maven.plugins	to build spring boot aplication
+spring-boot-maven-plugin	org.springframework.boot to specify entry point for spring boot application
+openapi-generator-maven-plugin	org.openapitools	to generate open api server
+build-helper-maven-plugin	org.codehaus.mojo		code covereage
+maven-javadoc-plugin	org.apache.maven.plugins	to generate documentation
+maven-pmd-plugin		org.apache.maven.plugins
+dependency-check-maven	org.owasp					to perform depdency , security check and generate report
+maven-checkstyle-plugin	org.apache.maven.plugins	to perfrom static code review and generate report
+aspectj-maven-plugin	org.codehaus.mojo
+
+
+
+Maven Lifecycle
+****************
+clean
+	clean up of target folder
+validate
+	maven-checkstyle-plugin:3.0.0:check (checkstyle-validate)
+compile
+	build-helper-maven-plugin:1.7:add-source 
+	maven-resources-plugin:3.1.0:resources
+	maven-compiler-plugin:3.7.0:compile
+test	
+	maven-checkstyle-plugin:3.0.0:check
+	openapi-generator-maven-plugin:3.3.4:generate
+	build-helper-maven-plugin:1.7:add-source
+	maven-resources-plugin:3.1.0:resources
+	maven-compiler-plugin:3.7.0:compile
+	maven-surefire-plugin:2.22.2:test
+	jacoco-maven-plugin:0.8.2:report
+package
+	maven-checkstyle-plugin:3.0.0:check
+	jacoco-maven-plugin:0.8.2:prepare-agent
+	openapi-generator-maven-plugin:3.3.4:generate
+	build-helper-maven-plugin:1.7:add-source
+	maven-resources-plugin:3.1.0:resources
+	maven-compiler-plugin:3.7.0:compile
+	maven-resources-plugin:3.1.0:testResources
+	maven-compiler-plugin:3.7.0:testCompile
+	maven-surefire-plugin:2.22.2:test
+	jacoco-maven-plugin:0.8.2:report (post-unit-test)
+	jacoco-maven-plugin:0.8.2:report (report)
+	maven-jar-plugin:3.1.2:jar 
+	spring-boot-maven-plugin:2.1.5.RELEASE:repackage
+	maven-javadoc-plugin:3.0.1:jar
+verify
+	jacoco-maven-plugin:0.8.2:prepare-agent
+	openapi-generator-maven-plugin:3.3.4:generate
+	build-helper-maven-plugin:1.7:add-source
+	maven-resources-plugin:3.1.0:resources
+	maven-compiler-plugin:3.7.0:compile
+	maven-resources-plugin:3.1.0:testResources
+	maven-compiler-plugin:3.7.0:testCompile
+	maven-surefire-plugin:2.22.2:test
+	jacoco-maven-plugin:0.8.2:report (post-unit-test)
+	jacoco-maven-plugin:0.8.2:report (report)
+	maven-jar-plugin:3.1.2:jar
+    spring-boot-maven-plugin:2.1.5.RELEASE:repackage
+	maven-javadoc-plugin:3.0.1:jar
+install
+	maven-checkstyle-plugin:3.0.0:check
+	jacoco-maven-plugin:0.8.2:prepare-agent
+	openapi-generator-maven-plugin:3.3.4:generate
+	build-helper-maven-plugin:1.7:add-source
+	maven-resources-plugin:3.1.0:resources
+	maven-compiler-plugin:3.7.0:compile
+	maven-resources-plugin:3.1.0:testResources
+	maven-compiler-plugin:3.7.0:testCompile
+	maven-surefire-plugin:2.22.2:test
+	jacoco-maven-plugin:0.8.2:report (post-unit-test)
+	jacoco-maven-plugin:0.8.2:report (report)
+	maven-jar-plugin:3.1.2:jar
+	spring-boot-maven-plugin:2.1.5.RELEASE:repackage
+	maven-javadoc-plugin:3.0.1:jar
+site
+	maven-site-plugin:3.7.1:site
+	
+	
+Upload artificats to Artifactory
+*********************************
+update maven setting file(c:\users\<user-name>\.m2\settings.xml) to have server and user credentials 
+
+add following to pox.xml
+
+<distributionManagement>
+        <repository>
+            <id>wba-artifactory</id>
+            <url>https://oneit.wba.com/artifactory/lefdd-libs</url>
+        </repository>
+</distributionManagement>
+
+run  mvn deploy
+
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ wagRetPhaCustomer ---
+Downloading from wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/maven-metadata.xml
+Downloaded from wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/maven-metadata.xml (781 B at 519 B/s)
+Uploading to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/wagRetPhaCustomer-1.0-20190612.063241-2.jar
+Uploaded to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/wagRetPhaCustomer-1.0-20190612.063241-2.jar (43 MB at 3.6 MB/s)
+Uploading to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/wagRetPhaCustomer-1.0-20190612.063241-2.pom
+Uploaded to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/wagRetPhaCustomer-1.0-20190612.063241-2.pom (8.1 kB at 862 B/s)
+Downloading from wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/maven-metadata.xml
+Downloaded from wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/maven-metadata.xml (384 B at 640 B/s)
+Uploading to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/maven-metadata.xml
+Uploaded to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/1.0-SNAPSHOT/maven-metadata.xml (781 B at 84 B/s)
+Uploading to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/maven-metadata.xml
+Uploaded to wba-artifactory: https://oneit.wba.com/artifactory/lefdd-libs/com/wba/api/customer/wagRetPhaCustomer/maven-metadata.xml (329 B at 35 B/s)
+
+

@@ -1,0 +1,323 @@
+openapi: "3.0.2"
+info:
+  title: Customer information API
+  description: Customer Information api queries for customer info based in several search criterias
+  version: 0.0.1
+  contact:
+    name: ICE development team
+    email: whatever@walgreens.com
+servers:
+  - url: 'http://{environment}:8080/'
+    description: internal URL where API is exposed.
+    variables:
+      environment:
+        default: localhost
+        enum:
+          - localhost-sit
+          - localhost-staging
+          - localhost-prod
+paths:
+  /api/v1/walgreens/pharmacy/customers/{customerID}:
+    get:
+      summary: get customer details
+      description: >-
+        This resource will get the info based on an specific customerID
+      operationId: getCustomerByID
+      parameters:
+        - name: customerID
+          in: path
+          description: client identifier
+          required: true
+          schema:
+            maxLength: 20
+            type: integer
+        - in: header
+          name: ApplicationId
+          description: 'Audit purposes, for use with appinsight'
+          schema:
+            type: string
+          required: false
+        - in: header
+          name: CorrelationId
+          description: 'Audit purposes, for use with appinsight'
+          schema:
+            type: string
+          required: false  
+        - name: Authorization
+          in: header
+          description: API Key for accessing API
+          required: false
+          schema:
+            type: string
+            default: please enter apikey            
+      tags:
+        - Get id by id
+      responses:
+        '200':
+          description: Search result of search customer by ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/customerSearchResponse'
+                  
+        '400':
+          description: Bad Request
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                400:
+                    summary: Bad request
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/validation-error'
+                                 typeCode: <1000>
+                                 title: Bad request
+                                 details: parameters invalid
+                                 errorParams:
+                                   - name: customerID
+                                     reason: not found
+                             status: 400
+        '401':
+          description: Unauthorized
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                401:
+                    summary: Not Authorized
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/unauthorized-error'
+                                 typeCode: <1001>
+                                 title: Not Authorized
+                                 details: error validating authentication/authorization data
+                                 errorParams:
+                                   - name: authorization
+                                     reason: invalid
+                             status: 401
+        '404':
+          description: Not found
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                404:
+                    summary: Not found
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/validation-error'
+                                 typeCode: <1002>
+                                 title: Customer not found
+                                 details: Customer ID is not in database
+                                 errorParams:
+                                   - name: customerID
+                                     reason: not found
+                             status: 404
+                           
+                            
+        '405':
+          description: Method not allowed
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                405:
+                    summary: htpp method not allowed
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/http-method-error'
+                                 typeCode: <1003>
+                                 title: http method not allowed
+                                 details: http method not allowed in this API
+                                 errorParams:
+                                   - name: http-verb
+                                     reason: not valid
+                             status: 405
+                           
+
+        '503':
+          description: Error, unable to connect to Backend System
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                503:
+                    summary: Backend not available
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/backend-error'
+                                 typeCode: <1004>
+                                 title: Backend not available
+                                 details: Backend application is not available
+                                 errorParams:
+                                   - name: 
+                                     reason: 
+                             status: 503
+                           
+        '500':
+          description: A generic error message, given when an unexpected condition was encountered and no more specific message is suitable
+          content:
+            application/json:          
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              example:
+                500:
+                    summary: Generic error
+                    error:
+                             errors:
+                               - type: 'https://digitaldecoupling.walgreens.com/api/v1/walgreens/pharmacy/customers/generuic-error'
+                                 typeCode: <1005>
+                                 title: Generic error
+                                 details: Unexpected error condition was encountered.
+                                 errorParams:
+                                   - name: 
+                                     reason: not
+                             status: 500
+                           
+  /api/v1/walgreens/pharmacy/customers/ping:
+     get:
+      summary: Validate API status
+      description: >-
+        This resource will get the status of the API
+      operationId: getCustomerByIDPing
+      parameters:
+        - in: header
+          name: ApplicationId
+          description: 'Audit purposes, for use with appinsight'
+          schema:
+            type: string
+          required: false
+        - in: header
+          name: CorrelationId
+          description: 'Audit purposes, for use with appinsight'
+          schema:
+            type: string
+          required: false  
+        - name: Authorization
+          in: header
+          description: API Key for accessing API
+          required: false
+          schema:
+            type: string
+            default: please enter apikey            
+      tags:
+        - obtain generic status of the API
+      responses:
+        '200':
+          description: successful response for ping API
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    description: generic status of the API
+                    type: string
+                  apiName:
+                    description: api name for the api
+                    type: string
+                  apiVersion:
+                    description: Api version deployed
+                    type: string
+              example:
+                200:
+                  status: ok
+                  apiName: wagRetPhaCustomer
+                  version: v0_0_1
+        '500':
+          description: Generic error response for ping API
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    description: generic status of the API
+                    type: string
+                  apiName:
+                    description: api name for the api
+                    type: string
+                  apiVersion:
+                    description: Api version deployed
+                    type: string
+              example:
+                500:
+                  status: fail
+                  apiName: wagRetPhaCustomer
+                  version: v0_0_1
+        
+                        
+components:
+    schemas:
+      customerSearchResponse:
+            type: object
+            description: response with a customer info
+            properties:
+                customerID:
+                    type: integer
+                    description: unique id for the customer
+                    example: 1232132
+                firstName:
+                    type: string
+                    description: customer first name
+                    example: joe
+                lastName:
+                    type: string
+                    description: customer last name
+                    example: doe
+      errorResponse:
+            type: object
+            description: error message schema
+            properties:
+                error:
+                 $ref: '#/components/schemas/errors'
+                status:
+                  type: string
+
+      errors:
+            type: object
+            description: error message schema
+            properties:
+                errors:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/errorInfo'
+      errorInfo:
+        description: detail information for each error detected
+        properties:
+          type:
+            description: Error Type
+            type: string
+          typeCode:
+            description: Error Type Code
+            type: string
+          title:
+            description: Title for Error
+            type: string
+          details:
+            description: Error Details
+            type: string
+          errorParams:
+            description: List of parameters causing the error
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  description: Parameter Name
+                  type: string
+                reason:
+                  description: Reason Parameter is causing error
+                  type: string
+
+    securitySchemes:
+        api_key:
+            type: apiKey
+            name: Authorization
+            in: header

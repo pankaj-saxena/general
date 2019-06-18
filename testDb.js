@@ -34,8 +34,9 @@ async function getCustomerDetail(id) {
       const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
       //execute search query
       const results =  await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-      console.log(results.result.length);
-      //await client.database(databaseId).container(containerId).item('2037').delete();
+      console.log(results.result.length + ' record found with client id:'+idStr);
+      console.log(results.result[0]);
+      await client.database(databaseId).container(containerId).item(results.result[0].id).delete();
       //processRecord(results.result[0],oCustomer);
       
    }catch (err){
@@ -56,4 +57,4 @@ function processRecord(recordDB,recordEvt){
 }
 
 //getCustomerDetail(customers.PS);
-getCustomerDetail(2037);
+getCustomerDetail(1220049442);
