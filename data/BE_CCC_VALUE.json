@@ -1,0 +1,26 @@
+{
+  "eventTime": 1565123489081,
+  "binding": {
+    "key": "535bd3fb-b92b-11e9-9879-000d3a198bad",
+    "table": "CUSTOMER_SOURCE_SYSTEM",
+    "joiningTables": null
+  },
+  "legacySorBindings": {
+    "keys": [
+      {
+        "key": "5462553",
+        "indexInKey": 0
+      }
+    ],
+    "table": "CUSTOMER_SOURCE_SYSTEM",
+    "mutatedTable": "CUSTOMER_COMMUNICATION_CONSENT",
+    "mutatedKeys": [
+      {
+        "key": "CCHC",
+        "indexInKey": 1
+      }
+    ],
+    "joiningTables": null
+  },
+  "rawBusinessEvent": "{\"magic\": \"atMSG\", \"type\": \"DT\", \"headers\": null, \"messageSchemaId\": \"A91534C714D2C0676B27FB58E824588D\", \"messageSchema\": null, \"message\": {\"data\": {\"CUSTOMER_ID\": \"5462553\", \"CONSENT_TYPE_CODE\": \"CCHC\", \"CONSENT_VERBIAGE_VERSION_CODE\": null, \"CONSENT_VERBIAGE_LANGUAGE\": null, \"CONSENT_IND\": null, \"CONSENT_EXP_DT\": null, \"CHANNEL_CODE\": \"EC1\", \"STATUS_CODE\": null, \"SOURCE_RX_NBR\": null, \"SOURCE_TXN_NBR\": null, \"SOURCE_STORE_NBR\": null, \"CONSENT_REFERENCE_TYPE_CODE\": null, \"CONSENT_REFERENCE_VALUE\": null, \"CREATE_TS\": null, \"CREATE_USER_ID\": null, \"UPDATE_TS\": null, \"UPDATE_USER_ID\": null, \"OPV_CREATE_USER_ID\": null, \"OPV_CREATE_TS\": null, \"OPV_UPDATE_USER_ID\": null, \"OPV_UPDATE_TS\": null, \"CREATE_SYSTEM_CODE\": null, \"UPDATE_SYSTEM_CODE\": null, \"CONSENT_CAPTURE_DTTM\": null, \"ENTITY_TYPE_CODE\": null, \"ENTITY_TYPE_VALUE\": null}, \"beforeData\": {\"CUSTOMER_ID\": \"5462553\", \"CONSENT_TYPE_CODE\": \"CCHC\", \"CONSENT_VERBIAGE_VERSION_CODE\": null, \"CONSENT_VERBIAGE_LANGUAGE\": null, \"CONSENT_IND\": null, \"CONSENT_EXP_DT\": null, \"CHANNEL_CODE\": \"EC1\", \"STATUS_CODE\": null, \"SOURCE_RX_NBR\": null, \"SOURCE_TXN_NBR\": null, \"SOURCE_STORE_NBR\": null, \"CONSENT_REFERENCE_TYPE_CODE\": null, \"CONSENT_REFERENCE_VALUE\": null, \"CREATE_TS\": null, \"CREATE_USER_ID\": null, \"UPDATE_TS\": null, \"UPDATE_USER_ID\": null, \"OPV_CREATE_USER_ID\": null, \"OPV_CREATE_TS\": null, \"OPV_UPDATE_USER_ID\": null, \"OPV_UPDATE_TS\": null, \"CREATE_SYSTEM_CODE\": null, \"UPDATE_SYSTEM_CODE\": null, \"CONSENT_CAPTURE_DTTM\": null, \"ENTITY_TYPE_CODE\": null, \"ENTITY_TYPE_VALUE\": null}, \"headers\": {\"operation\": \"UPDATE\", \"changeSequence\": \"20190806203123000000000000000000561\", \"timestamp\": \"2019-08-06T20:31:21.000\", \"streamPosition\": \"00000000.038bbf25.00000001.0000.02.0000:167.193312.16\", \"transactionId\": \"00000000000000000000000000110002\", \"changeMask\": \"04000000\", \"columnMask\": \"01000043\", \"transactionEventCounter\": 1, \"transactionLastEvent\": true}}}"
+}

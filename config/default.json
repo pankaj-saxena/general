@@ -12,9 +12,7 @@
     "passphrase":"password"
     },
 "kafka": { 
-        "host":"localhost",
-        "port":"9092",
-        "topic": "wbaTopic"
-
+    "server":"dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092",        
+    "topic": "dd-dev-cpm-dry1-cd1-c" 
     }
 }

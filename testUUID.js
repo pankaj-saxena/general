@@ -1,0 +1,44 @@
+const uuid = require('uuid');
+const getUuid = require('uuid-by-string')
+const datetime = require('node-datetime');
+ 
+//console.log(uuid.v4());
+//console.log(getUuid('5462553'));
+//console.log(getUuid('5462553'));
+
+var dt =datetime.create();
+var bizEvent = {}
+var binding = {};
+binding.key = getUuid("5462553");
+binding.table = "tbf_rx";
+binding.joiningTables = null;
+
+var legacySorBindings = {};
+var keys = [];
+var key1 = {};
+key1.key = "5462553",
+key1.indexInKey = "0"
+keys.push(key1);
+legacySorBindings.keys= keys;
+legacySorBindings.table =  "tbf_rx";
+legacySorBindings.mutatedTable =  "tbf_rx";
+legacySorBindings.mutatedKeys =  null;
+legacySorBindings.joiningTables =  "";
+
+bizEvent.eventTime = dt._created;
+bizEvent.binding = binding;
+bizEvent.legacySorBindings = legacySorBindings;
+bizEvent.rawBusinessEvent = "";
+
+//console.log(bizEvent);
+//console.log(JSON.stringify(bizEvent));
+
+var rawEventKey = {
+    "table": "TBF0_RX_TRANSACTION",
+    "op_type": "INSERT",
+    "key": "59398000216"
+  };
+
+  console.log(rawEventKey.table);
+  console.log(rawEventKey.key);
+

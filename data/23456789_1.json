@@ -1,0 +1,63 @@
+{
+    "customerId": "23456789",
+    "patientSrcSystemId": "1",
+    "sourceSystemName": "IC",
+    "enterpriseId": "enterpriseId",
+    "firstName": "Cucumber",
+    "lastName": "Test",
+    "rxNumber": "DE134560",
+    "srcStoreNbr": "storeNumber",
+    "emailAddress": "email",
+    "phoneTypeCd": "M",
+    "phoneNumber": "503-594-3948",
+    "phonePriority": "P",
+    "hcTxtOptInStatus": "Y",
+    "commPrefLang": "English",
+    "customerConsentInfo": {
+        "consentTypeCd": "CCHC",
+        "consentChannelCd": "POS",
+        "consentInd": "Y",
+        "consentExpDt": "expiryDate",
+        "consentUpdate_ts": "updateDTTM",
+        "consentEffDate": "effectiveDateTime",
+        "consentVerbiageRefType": "verbiageReferenceType",
+        "consentVerbiageReferenceValue": "verbiageReferenceValue",
+        "comments": "comments",
+        "consentVerStatusCd": "A",
+        "consentVerbiageLanguage": "verbiageLanguage",
+        "version": "version"
+    },
+    "communicationPreference": [
+        {
+            "commPrefType": "type",
+            "communicationPreferenceAttributes": [
+                {
+                    "prefChannel": "TEXT",
+                    "emailAddress": "Paulmax@gmail.com",
+                    "phoneNumber": "503-594-3948",
+                    "emailType": "emailType",
+                    "phoneTypeCd": "M",
+                    "phoneNumberType": "M",
+                    "phonePriority": "A1",
+                    "value": "value"
+                },
+                {
+                    "prefChannel": "TEXT",
+                    "emailAddress": "Paulmax@gmail.com",
+                    "phoneNumber": "503-594-3948",
+                    "emailType": "emailType",
+                    "phoneTypeCd": "M",
+                    "phoneNumberType": "M",
+                    "phonePriority": "A1",
+                    "value": "value"
+                }
+            ]
+        }
+    ],
+    "id": "3856c7c1-ea67-9189-9aef-98459430cac5",
+    "_rid": "LOUkANKBpUcCAAAAAAAAAA==",
+    "_self": "dbs/LOUkAA==/colls/LOUkANKBpUc=/docs/LOUkANKBpUcCAAAAAAAAAA==/",
+    "_etag": "\"0c0018e8-0000-0100-0000-5d14e7e90000\"",
+    "_attachments": "attachments/",
+    "_ts": 1561651177
+}

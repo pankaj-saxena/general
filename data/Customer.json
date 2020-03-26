@@ -1,0 +1,44 @@
+{
+    "id": "c0fd5160-c369-11e9-99d4-000d3a198bad",
+    "customerId": "2882213",
+    "patientSrcSystemId": "93231",
+    "sourceSystemName": "IC", 
+	"rxNumber": null,	
+    "firstName": "Manishaa",
+    "lastName": "Manish",    
+    "srcStoreNbr": null,
+	"enterpriseId": "580319765",
+    "emailAddress": null,
+    "phoneType": null,
+    "phoneNbr": null,
+    "phonePriority": null,
+    "hcTxtOptInStatus": null,
+    "commPrefLang": null,-------------obsolete
+    "refillReminderEmail": null,-------------obsolete
+    "refillReminderTextPrimary": null,-------------obsolete
+    "refillReminderTextAlt1": null,-------------obsolete
+    "refillReminderTextAlt2": null,-------------obsolete
+    "customerConsentInfo": {
+        "consentTypeCd": null,
+        "consentChannelCd": null,
+        "consentInd": null,
+        "consentVerStatusCd": null,
+        "consentExpDt": null,
+        "consentUpdateTs": null,
+        "consentVerbiageLanguage": null,
+        "consentVerbiageRefType": null,
+        "consentVerbiageReferenceValue": null,
+        "consentVersion": null,
+        "consentComments": null,
+        "consentEffectiveDate": null,
+        "consentUpdate_ts": null
+    },
+    "communicationPreferenceAttributes": [],
+    "phone_nbr": null,-------------obsolete
+    "phone_priority": null,-------------obsolete
+    "_rid": "LOUkAP6XlXAsAAAAAAAAAA==",
+    "_self": "dbs/LOUkAA==/colls/LOUkAP6XlXA=/docs/LOUkAP6XlXAsAAAAAAAAAA==/",
+    "_etag": "\"08006e20-0000-0100-0000-5d5d618e0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1566400910
+}

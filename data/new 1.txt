@@ -1,0 +1,23 @@
+Azure Devspaces
+----------------
+
+***
+Azure Dev Spaces is supported only by AKS clusters in the East US, East US 2, Central US, South Central US, West US 2, North Europe, West Europe, UK South, Southeast Asia, Australia East, Canada Central, and Canada East regions
+****
+
+	-	Create an Azure Kubernetes Service cluster 
+		az group create --name rg-devspace --location eastus
+		az aks create -g rg-devspace -n DevAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+
+	-	Enable Azure Dev Spaces on your AKS cluster
+		az aks use-dev-spaces -g rg-devspace -n DevAKS --space dev --yes
+		
+	-	Get sample application code
+		git clone https://github.com/Azure/dev-spaces
+		cd dev-spaces/samples/BikeSharingApp/
+		
+		
+	-	Retrieve the HostSuffix for dev
+		azds show-context
+
+	-	Update the Helm chart with your HostSuffix

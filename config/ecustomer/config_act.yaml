@@ -1,0 +1,30 @@
+kafka:
+  inBootstrapServers: "dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092"
+  outBootstrapServers: ""
+  errorBootstrapServers: "dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092"
+  inTopic: "hydrated-events-3"
+  outTopic: ""
+  errorTopic: "error-e-customer-reference"
+  podName: "evtcustomerconsentcust-0"
+  serviceName: "evtcustomerconsentcust-"
+  partition: 50
+  clientId: "lp-dev-cpm-evtcustomerconsentcust-1"
+  groupId: "lp-dev-grp-cpm-evtcustomerconsentcust-1"
+  maxParallelismOnReads: 1
+  maxCommitBatch: 10
+cosmos:
+  endpoint: "https://consent-pref-db.documents.azure.com:443/"
+  databaseName: "ConsentPreferences"
+  primaryKey: "xrrXOrLE8kTfWsL4GdCf8ZOvzh7zbdWl9Z9dsyrhqURmghN7nHu9QNGz1vacHpDxhxVoXTodKRRXvQikgkLSBw=="
+spring:
+  main:
+    web-application-type: none
+  profiles:
+    active: Debug
+#${ACTIVE_PROFILE}
+
+azure:
+  application-insights:
+    enabled: false
+    instrumentation-key: TXta12!2334
+#${H_CUSTOMER_CPM_APP_IN_INSTRU_KEY_V1}

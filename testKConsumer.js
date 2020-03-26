@@ -2,11 +2,47 @@
 const config = require('config');
 const kafka = require('kafka-node');
 
-let kafka_host = config.get('kafka.host');
-let kafka_port = config.get('kafka.port');
-let topic = config.get('kafka.topic');
+let kserver = config.get('kafka.server');
+let topicName = config.get('kafka.topic');
 
-var kclient = new kafka.KafkaClient({kafkaHost: kafka_host +':' + kafka_port});
+var kclientId = "hydcustomerconsentcust-ref";
+var groupName = "hydcustomerconsentcust-ref-grp1";
+
+function initiateKafkaConsumerGroup (groupName, topicName) {
+    var options = {
+      // connect directly to kafka broker (instantiates a KafkaClient)
+      kafkaHost: kserver,
+      groupId: groupName,
+      autoCommit: true,
+      autoCommitIntervalMs: 5000,
+      sessionTimeout: 15000,
+      fetchMaxBytes: 10 * 1024 * 1024, // 10 MB
+      // An array of partition assignment protocols ordered by preference. 'roundrobin' or 'range' string for
+      // built ins (see below to pass in custom assignment protocol)
+      protocol: ['roundrobin'],
+      // Offsets to use for new groups other options could be 'earliest' or 'none'
+      // (none will emit an error if no offsets were saved) equivalent to Java client's auto.offset.reset
+      fromOffset: 'latest',
+      // how to recover from OutOfRangeOffset error (where save offset is past server retention)
+      // accepts same value as fromOffset
+      outOfRangeOffset: 'earliest'
+    };
+  
+    var consumerGroup = new kafka.ConsumerGroup(options, topicName);
+  
+    consumerGroup.on('message', function (message) {
+      console.log('Message: ' + message);
+      //TODO: You can write your code or call messageProcesser function
+    });
+  
+    consumerGroup.on('error', function onError(error) {
+      console.error(error);
+    });
+  
+    console.log('Started Consumer for topic "' + topicName + '" in group "' + groupName + '"');
+  };
+
+/*var kclient = new kafka.KafkaClient({kafkaHost: kserver});
 
 function receiveMessage(client){    
     console.log("listening to topic '%s' ...", topic);
@@ -16,6 +52,7 @@ function receiveMessage(client){
             { topic: topic, partition: 0}
         ],
         {
+            //groupId: kgroupId,        
             autoCommit: true
         });
         
@@ -24,10 +61,16 @@ function receiveMessage(client){
             var event = message.value;
             console.log("Message received:\n"+ event);
         })     
+
+        consumer.on('error', function (err) {
+            console.log(err);
+        })
    
-}
+}*/
 
 
-receiveMessage(kclient);
+//receiveMessage(kclient);
+
+initiateKafkaConsumerGroup(groupName,topicName);
 
 

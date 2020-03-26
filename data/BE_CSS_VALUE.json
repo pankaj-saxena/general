@@ -1,0 +1,21 @@
+{
+  "eventTime": 1565193134459,
+  "binding": {
+    "key": "535bd3fb-b92b-11e9-9879-000d3a198bad",
+    "table": "CUSTOMER_SOURCE_SYSTEM",
+    "joiningTables": null
+  },
+  "legacySorBindings": {
+    "keys": [
+      {
+        "key": "5462553",
+        "indexInKey": 0
+      }
+    ],
+    "table": "CUSTOMER_SOURCE_SYSTEM",
+    "mutatedTable": "CUSTOMER_SOURCE_SYSTEM",
+    "mutatedKeys": null,
+    "joiningTables": null
+  },
+  "rawBusinessEvent": "{\n  \"magic\": \"atMSG\",\n  \"type\": \"DT\",\n  \"headers\": null,\n  \"messageSchemaId\": \"64FDFCBBCF4DEACFECAA1205FD20D98E\",\n  \"messageSchema\": null,\n  \"message\": {\n    \"data\": {\n      \"SOURCE_SYSTEM_ID\": \"3204500125492\",\n      \"SOURCE_SYSTEM_NAME\": \"IC\",\n      \"EID\": \"582212517\",\n      \"CUSTOMER_ID\": \"5462553\",\n      \"STATUS_CODE\": \"A\",\n      \"MDM_LAST_UPDATE_DTTM\": null\n    },\n    \"beforeData\": {\n      \"SOURCE_SYSTEM_ID\": null,\n      \"SOURCE_SYSTEM_NAME\": null,\n      \"EID\": null,\n      \"CUSTOMER_ID\": null,\n      \"STATUS_CODE\": null,\n      \"MDM_LAST_UPDATE_DTTM\": null\n    },\n    \"headers\": {\n      \"operation\": \"REFRESH\",\n      \"changeSequence\": \"20190807154428000000000000000000389\",\n      \"timestamp\": \"2019-08-07T15:44:25.000\",\n      \"streamPosition\": \"00000000.03924825.00000001.0000.02.0000:168.92231.16\",\n      \"transactionId\": \"000000000000000000000000001B0005\",\n      \"changeMask\": \"0040\",\n      \"columnMask\": \"0018\",\n      \"transactionEventCounter\": 1,\n      \"transactionLastEvent\": true\n    }\n  }\n}"
+}

@@ -1,0 +1,99 @@
+{
+    "customerId": "23456789",
+    "patientSrcSystemId": "2",
+    "sourceSystemName": "IC",
+    "rxNumber": "DE134560",
+    "firstName": "Cucumber",
+    "lastName": "Test",
+    "sourceSystemId": "IC",
+    "communicationPreference": [
+        {
+            "communicationPreferenceAttribute": [
+                {
+                    "emailAddress": "Paulmax@gmail.com",
+                    "phoneType": "M",
+                    "phoneNumber": "503-594-3948",
+                    "emailType": "emailType",
+                    "channel": "TEXT",
+                    "phoneNumberType": "M",
+                    "phonePriority": "A1",
+                    "value": "value"
+                },
+                {
+                    "emailAddress": "Maxi@gmail.com",
+                    "phoneType": "HP",
+                    "phoneNumber": "971-982-0902",
+                    "emailType": "emailType",
+                    "channel": "EMAIL",
+                    "phoneNumberType": "M",
+                    "phonePriority": "P",
+                    "value": "value"
+                }
+            ],
+            "type": "type"
+        },
+        {
+            "communicationPreferenceAttribute": [
+                {
+                    "emailAddress": "emailAddress",
+                    "phoneType": "phoneType",
+                    "phoneNumber": "phoneNumber",
+                    "emailType": "emailType",
+                    "channel": "channel",
+                    "phoneNumberType": "phoneNumberType",
+                    "phonePriority": "phonePriority",
+                    "value": "value"
+                },
+                {
+                    "emailAddress": "emailAddress",
+                    "phoneType": "phoneType",
+                    "phoneNumber": "phoneNumber",
+                    "emailType": "emailType",
+                    "channel": "channel",
+                    "phoneNumberType": "phoneNumberType",
+                    "phonePriority": "phonePriority",
+                    "value": "value"
+                }
+            ],
+            "type": "E"
+        }
+    ],
+    "storeNumber": "storeNumber",
+    "patientId": "patientId",
+    "phone": [
+        {
+            "phoneNumber": "phoneNumber",
+            "phoneNumberType": "phoneNumberType",
+            "priority": "priority",
+            "hcTxtOptInStatus": "N"
+        },
+        {
+            "phoneNumber": "phoneNumber",
+            "phoneNumberType": "phoneNumberType",
+            "priority": "priority",
+            "hcTxtOptInStatus": "Y"
+        }
+    ],
+    "enterpriseId": "enterpriseId",
+    "email": "email",
+    "consentInfo": {
+        "indicator": "Y",
+        "expiryDate": "expiryDate",
+        "verbiageReferenceValue": "verbiageReferenceValue",
+        "comments": "comments",
+        "effectiveDateTime": "effectiveDateTime",
+        "updateDTTM": "updateDTTM",
+        "channel": "channel",
+        "verbiageReferenceType": "verbiageReferenceType",
+        "consentStatusCode": "consentStatusCode",
+        "verbiageLanguage": "verbiageLanguage",
+        "type": "CCHC",
+        "version": "version"
+    },
+    "id": "acf60c26-be77-1651-6b87-fbf162e05b2c",
+    "_rid": "LOUkANKBpUcFAAAAAAAAAA==",
+    "_self": "dbs/LOUkAA==/colls/LOUkANKBpUc=/docs/LOUkANKBpUcFAAAAAAAAAA==/",
+    "_etag": "\"0c0030e8-0000-0100-0000-5d15ac7e0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1561701502
+}

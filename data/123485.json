@@ -1,0 +1,90 @@
+{
+    "customerId": "12345678",
+    "patientSrcSystemId": "123485",
+    "sourceSystemName": "IC",
+    "enterpriseId": "123456789",
+    "firstName": "John",
+    "lastName": "Doe",
+    "rxNumber": "DE134560",
+    "srcStoreNbr": "1231231",
+    "emailAddress": "john.doe@walgreens.com",
+    "phoneType": "M",
+    "phone_nbr": "2225555555",
+    "phone_priority": "P",
+    "hcTxtOptInStatus": "Y",
+    "commPrefLang": "English",
+    "customerConsentInfo": {
+        "consentTypeCd": "CCHC",
+        "consentChannelCd": "POS",
+        "consentInd": "Y",
+        "consentVerStatusCd": "A",
+        "consentExpDt": "2020-02-16T19:03:48.578-06:00",
+        "consentUpdate_ts": "2019-03-20T15:03:48.578-06:00",
+        "consentVerbiageLanguage": "English",
+        "consentVerbiageRefType": "",
+        "consentVerbiageReferenceValue": "",
+        "consentVersion": "V1",
+        "consentComments": ""
+    },
+    "communicationPreferences": [
+        {
+            "commPrefType": "REFILL_REMINDER",
+            "communicationPreferenceAttributes": [
+                {
+                    "prefChannel": "TEXT",
+                    "emailType": "",
+                    "emailOptInValue": "N",
+                    "emailAddr": "",
+                    "phone": [
+                        {
+                            "phoneNbrType": "M",
+                            "phoneTypeCd": "CP",
+                            "phonePriority": "P",
+                            "phoneNbr": "2225555555",
+                            "hcTxtOptInStatus": "Y",
+                            "txtOptInValue": "Y"
+                        },
+                        {
+                            "phoneNbrType": "M",
+                            "phoneTypeCd": "HP",
+                            "phonePriority": "A1",
+                            "phoneNbr": "2225555666",
+                            "hcTxtOptInStatus": "Y",
+                            "txtOptInValue": "Y"
+                        }
+                    ]
+                },
+                {
+                    "prefChannel": "EMAIL",
+                    "emailAddr": "mike.smith@walgreens.com",
+                    "emailType": "P",
+                    "emailOptInValue": "Y",
+                    "phone": [
+                        {
+                            "phoneNbrType": "ptype",
+                            "phoneTypeCd": "dcode",
+                            "phonePriority": "P",
+                            "phoneNbr": "409-290-1928",
+                            "hcTxtOptInStatus": "stat",
+                            "txtOptInValue": "Y"
+                        },
+                        {
+                            "phoneNbrType": "htype",
+                            "phoneTypeCd": "fcode",
+                            "phonePriority": "m",
+                            "phoneNbr": "332-093-1259",
+                            "hcTxtOptInStatus": "stat",
+                            "txtOptInValue": "N"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "id": "ae756df1-432c-457f-db9b-803aadb5f0fc",
+    "_rid": "LOUkANKBpUcEAAAAAAAAAA==",
+    "_self": "dbs/LOUkAA==/colls/LOUkANKBpUc=/docs/LOUkANKBpUcEAAAAAAAAAA==/",
+    "_etag": "\"0c002fe8-0000-0100-0000-5d15ac7d0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1561701501
+}

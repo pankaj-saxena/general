@@ -1,0 +1,66 @@
+kafka:
+  inBootstrapServers: "dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092"
+  outBootstrapServers: "dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092"
+  errorBootstrapServers: "dla-aeuddkb001.walgreens.com:9092,dla-aeuddkb002.walgreens.com:9092,dla-aeuddkb003.walgreens.com:9092"
+  inTopic: "dd-dev-cpm-uat-fd2-c"
+  outTopic: "hydrated-events-4"
+  errorTopic: "error-h-customer"
+  podName: "hydcustomerconsentcust-0"
+  serviceName: "hydcustomerconsentcust-"
+  partition: 50
+  clientId: "hydcustomerconsentcust-ref"
+  groupId: "hydcustomerconsentcust-ref-grp1"
+  maxParallelismOnReads: 1
+  maxCommitBatch: 10
+redis:
+  host: "customerconsentcust.redis.cache.windows.net"
+  port: "6380"
+  password: "it+ORE+M4ahREMvsq2Q8xBkqyagU2P9QZ9CbH81kjjc="
+hydration:
+  factTableNames:
+    - table: "CUSTOMER_SOURCE_SYSTEM"
+  dimensionTableNames:
+    - primaryKeys:
+        - indexInKey: 0
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER"
+    - primaryKeys:
+        - indexInKey: 0
+      mutatedPrimaryKeys:
+        - indexInKey: 1
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER_ADDRESS"
+    - primaryKeys:
+        - indexInKey: 0
+      mutatedPrimaryKeys:
+        - indexInKey: 1
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER_COMMUNICATION_CONSENT"
+    - primaryKeys:
+        - indexInKey: 0
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER_COMMUNICATION_PREF"
+    - primaryKeys:
+        - indexInKey: 0
+      mutatedPrimaryKeys:
+        - indexInKey: 1
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER_EMAIL"
+    - primaryKeys:
+        - indexInKey: 0
+      mutatedPrimaryKeys:
+        - indexInKey: 1
+      table: "CUSTOMER_SOURCE_SYSTEM"
+      mutatedTable: "CUSTOMER_PHONE_FAX"
+spring:
+  main:
+    web-application-type: none
+  profiles:
+    active: Debug
+#${ACTIVE_PROFILE}
+
+azure:
+  application-insights:
+    enabled: false
+    instrumentation-key: TXta12!2334
+#${H_CUSTOMER_CPM_APP_IN_INSTRU_KEY_V1}

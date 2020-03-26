@@ -1,0 +1,38 @@
+kafka:
+  inBootstrapServers: "dla-aeukabr01.walgreens.com:9092,dla-aeukabr02.walgreens.com:9092,dla-aeukabr03.walgreens.com:9092"
+  outBootstrapServers: "dla-aeukabr01.walgreens.com:9092,dla-aeukabr02.walgreens.com:9092,dla-aeukabr03.walgreens.com:9092"
+  errorBootstrapServers: "dla-aeukabr01.walgreens.com:9092,dla-aeukabr02.walgreens.com:9092,dla-aeukabr03.walgreens.com:9092"
+  inTopic: "lp-dev-t-kafk-cpm-rf1"
+  outTopic: "hydrated-events-1"
+  errorTopic: "error-h-reference"
+  podName: "hydcustomerconsentref-0"
+  serviceName: "hydcustomerconsentref-"
+  partition: 1
+  clientId: "hydcustomerconsentref-ref"
+  groupId: "hydcustomerconsentref-ref-grp1"
+  maxParallelismOnReads: 1
+  maxCommitBatch: 10
+redis:
+  host: "customerconsentcust.redis.cache.windows.net"
+  port: 6380
+  password: "it+ORE+M4ahREMvsq2Q8xBkqyagU2P9QZ9CbH81kjjc="
+hydration:
+  factTableNames:
+    - table: "CUSTOMER_PHONE_ATTR"
+  dimensionTableNames:
+    - primaryKeys:
+        - indexInKey: 0
+
+spring:
+  main:
+    web-application-type: none
+  profiles:
+    active: Debug
+
+#${ACTIVE_PROFILE}
+
+azure:
+  application-insights:
+    enabled: false
+    instrumentation-key: c3fcd244-b086-49f5-9dea-3316cc9fd158
+#${H_REFERENCE_CPM_APP_IN_INSTRU_KEY_V1}

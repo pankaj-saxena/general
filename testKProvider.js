@@ -3,11 +3,10 @@ const config = require('config');
 const kafka = require('kafka-node');
 const  fs = require('fs');
 
-let kafka_host = config.get('kafka.host');
-let kafka_port = config.get('kafka.port');
+let kserver = config.get('kafka.server');
 let topic = config.get('kafka.topic');
 
-let kclient = new kafka.KafkaClient({kafkaHost: kafka_host +':' + kafka_port});
+let kclient = new kafka.KafkaClient({kafkaHost: kserver});
 
 
 async function sendMessage(client,message){

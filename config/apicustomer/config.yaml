@@ -1,0 +1,43 @@
+spring:
+  jackson:
+    date-format: com.wba.dd.springreactor.customer.spring.RFC3339DateFormat
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  profiles:
+    active: ${ACTIVE_PROFILE}
+azure:
+  cosmosdb:
+    collectionname: ConsentPreferences
+    database: ConsentPreferences
+    key: xrrXOrLE8kTfWsL4GdCf8ZOvzh7zbdWl9Z9dsyrhqURmghN7nHu9QNGz1vacHpDxhxVoXTodKRRXvQikgkLSBw==
+    uri: https://consent-pref-db.documents.azure.com:443/
+  application-insights:
+    enabled: false
+    instrumentation-key: f238ec93-cb55-4e94-b1b5-5cdecd9895f9
+validation:
+  url:
+    path: /api/v1/walgreens/pharmacy/customers/{patientId}/consentAndPreference
+    pathparameters: '{patientId}'
+    pathparameterstypes: integer
+  headers:
+    requiredheaders: sourceSystem
+    validvalues: IC|SM|EC
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /api/v1/walgreens/pharmacy/customers/consentAndPreference
+      path-mapping.info: ping
+info:
+  apiname: apicustomerconsentpref
+  version: v1_0_0
+  status: ok
+logging:
+  console:
+    logentry: LogEntry
+    organization: wba
+    environment: Pharmacy
+    microservice: apicustomerconsentpref
+    revision: v1_0_0
+
