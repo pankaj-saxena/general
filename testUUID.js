@@ -39,6 +39,41 @@ var rawEventKey = {
     "key": "59398000216"
   };
 
-  console.log(rawEventKey.table);
-  console.log(rawEventKey.key);
+  var config = {
+    "factTableNames":[
+        {
+        "table": "tbf0_Rx"
+        }
+    ],
+  "dimensionTableNames":[
+    {
+    "primaryKeys":{
+        "indexInKey": 0
+    },
+    "table": "tbf0_Rx",
+    "mutatedTable": "tbf0_Rx_Transaction"
+    }]    
+};
 
+const tabType = {FACT:"fact", DIM:"dimension", JOIN:"join"};
+
+var found = null;
+var tabName = "tbf0_RX";
+console.log(tabName.toUpperCase());
+config.factTableNames.forEach((element) =>{
+  console.log(element.table.toUpperCase());
+  if (element.table.toUpperCase() == tabName.toUpperCase()){
+    found =tabType.FACT;
+  }
+} );
+
+config.dimensionTableNames.forEach((element) =>{
+  if (element.mutatedTable == tabName){
+    found =tabType.DIM;
+  }
+} );
+
+console.log(found);
+
+var mykey = "5462553;CCHC";
+console.log(3>2?"true":"false");
